@@ -1,0 +1,53 @@
+# Retrieval configuration (spec v2). Changing any value changes fingerprints / cache keys.
+spec_version: 2
+
+document:
+  template: "{title}\n{body}"        # candidate-side rendering; body = "".join(sentences).strip()
+  # Query-side rendering of a first-hop article A inside Q + A (D-04: no title).
+  # Applied to every Q + A (E1, R1/E2, R2, R3) so Oracle and autonomous queries are identical in form.
+  query_article: body
+
+compose:
+  joiner: "\n\n"                     # separator for Q+A, Q+SF and A+B
+  # Token-budget policies (dense only; BM25 uses full text):
+  #   query_first: left side (Q) kept whole, right side gets the remaining budget  (Q+A, Q+SF)
+  #   balanced:    each side gets half; unused budget goes to the other side       (A+B)
+  q_plus_a: query_first
+  a_plus_b: balanced
+
+bm25:
+  k1: 1.2
+  b: 0.75
+  formula: okapi_bm25_lucene_idf_v1  # idf = log(1 + (N - df + 0.5) / (df + 0.5))
+  tokenizer: nfkc_lower_regex_w+_v1  # NFKC, lowercase, regex \w+ ; no stemming, no stopwords
+  query_term_weighting: repeated
+  trainglobal:
+    stats_version: trainglobal-v1
+    # Corpus = all context articles of the official Train file, rendered with
+    # document.template and de-duplicated by sha256 of the rendered text.
+    dedup: sha256_rendered_text
+  local:
+    stats_version: local-v1          # corpus = all context articles of the question itself
+
+dense:
+  model: sentence-transformers/all-MiniLM-L6-v2
+  revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+  weights_sha256: 53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db
+  max_seq_length: 256
+  pooling: mean
+  normalize: true
+  similarity: cosine
+  batch_size: 64
+  cache_namespace: spec2             # fresh embedding cache for spec v2 (D-13)
+
+hybrid:
+  method: rrf
+  k: 60
+  tie_breaker: doc_index
+
+retrievers:                          # D-05: five retrievers; both hybrids share fusion + params
+  bm25_local:          {type: bm25, scope: local}
+  bm25_trainglobal:    {type: bm25, scope: trainglobal}
+  dense:               {type: dense}
+  hybrid_local:        {type: hybrid, bm25: bm25_local}
+  hybrid_trainglobal:  {type: hybrid, bm25: bm25_trainglobal}

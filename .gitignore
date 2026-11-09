@@ -1,0 +1,58 @@
+# Secrets / local settings
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# Data obtained by `python run.py data` (never committed; manifests are tracked)
+data/raw/
+data/splits/
+!data/manifests/
+
+# Model weights installed by `python run.py models` and Release assets (published separately)
+models/*/
+# release_assets/: only the license documents (legal/) and SHA256SUMS are tracked; ZIPs and staging are not
+release_assets/*
+!release_assets/legal/
+!release_assets/SHA256SUMS
+*.zip
+*.partial
+
+# Runs, caches, checkpoints
+outputs/
+.cache/
+checkpoints/
+*.pt
+*.bin
+*.safetensors
+*.onnx
+*.npy
+*.npz
+*.parquet
+*.joblib
+*.pkl
+*.log
+*.tmp
+
+# Backups / editor leftovers
+*.bak
+*.orig
+*~
+*backup*/
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/

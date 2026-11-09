@@ -1,0 +1,15 @@
+HotpotQA Research Repository v0.1.0 — sf_selector_fold0
+Copyright (c) 2026 Yi-Jui Li, for project fine-tuning, learned project parameters and release documentation.
+The supplied model artifact and project release documentation are distributed under Apache License 2.0; see LICENSE. The repository source-code MIT license is separate.
+
+This archive redistributes a fine-tuned derivative and configuration/tokenizer assets of sentence-transformers/all-MiniLM-L6-v2, published under Apache-2.0 by the Sentence Transformers project/contributors.
+Upstream: https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/tree/1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+The upstream model card declares nreimers/MiniLM-L6-H384-uncased as its base; all upstream model-card attributions are retained verbatim in UPSTREAM_MODEL_CARD.md. Upstream rights remain with their respective holders.
+The pinned upstream repository root lists no separate NOTICE file; this NOTICE supplies project attribution and does not claim to reproduce an upstream NOTICE.
+
+Trained using HotpotQA (Yang et al., 2018), CC BY-SA 4.0. See DATA_SOURCES.md for attribution and dataset license scope.
+These are independently fine-tuned/fitted project models; no upstream endorsement is claimed.
+See MODIFICATIONS.md and PROVENANCE.json for per-artifact provenance and modification notices.
+
+MiniLM upstream chain: nreimers/MiniLM-L6-H384-uncased (MIT), derived from microsoft/MiniLM-L12-H384-uncased (MIT).
+Copyright (c) Microsoft Corporation. The full original MIT permission and disclaimer are preserved in MINILM_MIT_LICENSE.txt; project Apache-2.0 licensing does not remove these notices.

@@ -1,0 +1,137 @@
+# One-click training of the Full method (python run.py train --profile full|smoke).
+#
+# Every model of the Full pipeline is retrained from the pinned base model (sentence-transformers/all-MiniLM-L6-v2,
+# configs/retrieval.yaml) and the fixed data splits (data/manifests). The step order is the dependency order of the
+# research pipelines (research scripts/phase3_pipeline.sh -> scripts/phase3b_pipeline.sh, then
+# scripts/artifact_registry/refit_qtype_frozen_lr.py and scripts/reranker_refit/refit.py for the saved artifacts).
+# The training code is the research code (scripts/train_*.py, gen_path_candidates.py, train_path_reranker.py);
+# hyper-parameters that the research scripts hold as constants are recorded under `hyperparameters` and
+# tests/test_train_full.py asserts they equal the script constants (a change in one place fails the tests).
+#
+# All paths are repository-relative. Placeholders: {runs.<key>} = run names below,
+# {best.general} / {best.csh} = the snapshot chosen by the run's own selection rule (result.json "best").
+version: 1
+
+env:                                # set for every step (same offline / thread settings as the research runs)
+  HF_HUB_OFFLINE: "1"
+  TRANSFORMERS_OFFLINE: "1"
+  OMP_NUM_THREADS: "8"
+  MKL_NUM_THREADS: "8"
+  PYTHONUNBUFFERED: "1"
+
+steps:                              # in dependency order; a step is skipped when its marker exists (resume)
+  - name: general_encoder
+    needs: []
+    cmd: [scripts/train_retriever.py, --run-name, "{runs.general}", --variant, hardneg]
+    marker: outputs/training_v1/{runs.general}/result.json
+  - name: qtype
+    needs: []
+    cmd: [scripts/train_qtype_classifier.py, --run-name, "{runs.qtype}", --skip-finetune]
+    marker: outputs/qtype_v1/{runs.qtype}/result.json
+  - name: qtype_artifact
+    needs: [qtype]
+    cmd: [scripts/export_qtype_artifact.py, --qtype-run, "{runs.qtype}", --out, "{runs.qtype_artifact}"]
+    marker: "{runs.qtype_artifact}/COMPLETE.json"
+  - name: sf_fold0
+    needs: []
+    cmd: [scripts/train_sf_selector_cf.py, --run-name, "{runs.sf}", --fold, "0"]
+    marker: outputs/sf_selector_v2/{runs.sf}/fold0/result.json
+  - name: sf_fold1
+    needs: []
+    cmd: [scripts/train_sf_selector_cf.py, --run-name, "{runs.sf}", --fold, "1"]
+    marker: outputs/sf_selector_v2/{runs.sf}/fold1/result.json
+  - name: csh_mine
+    needs: [sf_fold0, sf_fold1]
+    cmd: [scripts/train_second_hop.py, --run-name, "{runs.csh}", --variant, main, --sf-run, "{runs.sf}", --mine-only]
+    marker: outputs/csh_v1/{runs.csh}/MINING_DONE.json
+  - name: csh
+    needs: [csh_mine]
+    cmd: [scripts/train_second_hop.py, --run-name, "{runs.csh}", --variant, main, --sf-run, "{runs.sf}"]
+    marker: outputs/csh_v1/{runs.csh}/result.json
+  - name: candidates_v_select
+    needs: [general_encoder, csh, qtype]
+    cmd: [scripts/gen_path_candidates.py, --run-name, "{runs.cand}", --split, v_select, --first-model, "{best.general}",
+          --second-model, "{best.csh}", --sf-run, "{runs.sf}", --qtype-run, "{runs.qtype}"]
+    marker: outputs/path_candidates_v1/{runs.cand}/v_select_meta.json
+  - name: candidates_train
+    needs: [general_encoder, csh, qtype]
+    cmd: [scripts/gen_path_candidates.py, --run-name, "{runs.cand}", --split, train, --first-model, "{best.general}",
+          --second-model, "{best.csh}", --sf-run, "{runs.sf}", --qtype-run, "{runs.qtype}"]
+    marker: outputs/path_candidates_v1/{runs.cand}/train_meta.json
+  - name: r5
+    needs: [candidates_v_select, candidates_train]
+    cmd: [scripts/train_r5.py, --cand-run, "{runs.cand}", --run-name, "{runs.r5}"]
+    marker: outputs/path_reranker_v1/{runs.r5}/result.json
+  - name: export
+    needs: [general_encoder, qtype_artifact, sf_fold0, sf_fold1, csh, r5]
+    cmd: [scripts/export_trained_models.py, --profile, "{profile}"]
+    marker: outputs/trained_models/{profile}/models.json
+  - name: load_check
+    needs: [export]
+    cmd: [scripts/check_trained_models.py, --manifest, "outputs/trained_models/{profile}/models.json"]
+    marker: outputs/trained_models/{profile}/LOAD_CHECK.json
+
+profiles:
+  full:                             # the formal research configuration (run names as in the research outputs)
+    runs: {general: hardneg_v1, qtype: qtype_v2, qtype_artifact: outputs/qtype_artifacts_v1/qtype_v2_frozen_lr,
+           sf: sf_cf_v1, csh: csh_main_v1, cand: general_csh, r5: r5_full}
+    extra_args: {}
+  smoke:                            # tiny subsets: checks data, training, checkpoints, selection, export and loading.
+    runs: {general: smoke_hardneg, qtype: smoke_qtype, qtype_artifact: outputs/qtype_artifacts_v1/smoke_qtype_frozen_lr,
+           sf: smoke_sf, csh: smoke_csh, cand: smoke_general_csh, r5: smoke_r5}
+    extra_args:                     # appended to the step command; options of the research scripts (smoke / subsets)
+      general_encoder: [--n-train, "200", --max-steps, "12", --eval-n, "50", --eval-every, "6", --val-n, "16",
+                        --val-every, "6", --save-every, "6", --plot-every, "6"]
+      qtype: [--n-train, "400"]
+      qtype_artifact: [--n-train, "400"]
+      sf_fold0: [--n-train, "120", --n-val, "50", --val-loss-n, "8", --save-every, "20", --val-every, "20", --plot-every, "20"]
+      sf_fold1: [--n-train, "120", --n-val, "50", --val-loss-n, "8", --save-every, "20", --val-every, "20", --plot-every, "20"]
+      csh_mine: [--n-train, "120"]
+      csh: [--n-train, "120", --eval-n, "50", --eval-every, "10", --val-n, "32", --val-every, "10", --save-every, "10",
+            --plot-every, "10"]
+      candidates_v_select: [--n, "50"]
+      candidates_train: [--n, "120"]
+      r5: [--quick]
+
+# Record of the research hyper-parameters / rules (asserted against the scripts by tests/test_train_full.py).
+hyperparameters:
+  general_encoder:                  # scripts/train_retriever.py + configs/training_v1.yaml (variant hardneg)
+    config: configs/training_v1.yaml
+    variant: hardneg
+    selection: "max mean(O.fh_mrr, O.fh_all_gold@2, mean_dir(E1.recall@1)) on the first 1000 V-select ids (sha256 order), steps 0, 625, 1250, final; ties -> earlier step"
+  qtype:                            # scripts/train_qtype_classifier.py (frozen_linear part only)
+    C_grid: [0.1, 1.0, 10.0]
+    selection: "V-select macro-F1, ties -> smaller C"
+    max_iter: 2000
+    random_state: 42
+    encode_batch_size: 128
+  sf_selector:                      # scripts/train_sf_selector_cf.py
+    lr: 2.0e-5
+    batch_size: 32
+    max_length: 128
+    seed: 42
+    folds: 2
+    checkpoint: "final step (1 epoch); no selection"
+  csh:                              # scripts/train_second_hop.py, variant main
+    variant: main
+    tau: 0.05
+    lambda: 0.5
+    margin: 0.1
+    batch_size: 16
+    seed: 42
+    mining_max_seq_length: 128
+    k: 2
+    lr: 2.0e-5
+    selection: "QV2.cond_recall@1 on bridge questions of the first 1000 V-select, every 500 steps + final; ties -> earlier step"
+  candidates:                       # scripts/gen_path_candidates.py
+    k_first: 5
+    k_second: 5
+    k_parallel: 5
+    n_train_questions: 10000
+  r5:                               # scripts/train_path_reranker.py fit_lambdamart, via scripts/train_r5.py
+    grid: [[100, 3], [200, 4], [300, 3]]
+    lr: 0.1
+    min_samples_leaf: 50
+    seed: 42
+    feature_set: full
+    selection: "V-select PR@1, ties MRR"

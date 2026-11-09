@@ -1,0 +1,17 @@
+{
+ "bc_holdout": {
+  "per_question_sha256": "be44cc0322dcaea0d8ff95a81d9c56bcc31c6aa3b8e821c1f7ef57ef96c1f831",
+  "questions": 15612,
+  "source_per_question_sha256": "b6c6fc8c144fcd370d94bcaf3545baa8960f02b1ca659e8ee467d8710bc73b8b"
+ },
+ "official_dev_distractor": {
+  "per_question_sha256": "93a2f3af4e4a38a6acd2a0e5fc94203b2f96be7a6d3f7ea779135d0a251a3edc",
+  "questions": 7405,
+  "source_per_question_sha256": "15f078878766b03eda1c9461f33b3dfec103d9272832b11f68db06138a717673"
+ },
+ "v_report": {
+  "per_question_sha256": "866a50052024130db1f85a25fe803bd0d5c17e935b0b00277bb3d2615e7584ac",
+  "questions": 8000,
+  "source_per_question_sha256": "0e41f10e4a519ffa50e0dac370f615165fc1b303020b98e747bbe1b0311af70f"
+ }
+}

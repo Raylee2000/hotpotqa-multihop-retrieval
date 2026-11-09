@@ -1,0 +1,27 @@
+# Retrieval contrastive fine-tuning v1 (supersedes the DRAFT configs/training.yaml).
+# Gradient updates: Training split ONLY. Validation: checkpoint selection / evaluation only. Dev: never.
+version: 1
+base_model: sentence-transformers/all-MiniLM-L6-v2      # pinned in configs/retrieval.yaml (revision + weights sha256)
+max_seq_length: 256                                     # same encoder window as every evaluation
+data:
+  train_split: training
+  selection_split: validation
+  examples_per_question: 1          # kind (first_hop / second_hop) and gold chosen from sha256(seed, qid)
+  hard_negative_source: bm25_local  # static, label-free ranking of non-gold context articles
+  n_hard: 1                         # per example (variant hardneg); 0 for variant inbatch
+variants:
+  inbatch: {use_hard: false}        # fine-tuning effect alone (in-batch negatives only)
+  hardneg: {use_hard: true}         # + 1 BM25-mined hard negative per example
+loss: info_nce                      # src/rag_hotpotqa/training/contrastive.py (false-negative mask on gold texts)
+tau: 0.05
+optimizer: {name: adamw, lr: 2.0e-5, weight_decay: 0.01, warmup_ratio: 0.1, schedule: linear, grad_clip: 1.0}
+batch_size: 16
+epochs: 1
+seed: 42
+checkpoint: {save_every_steps: 100, keep: last}
+selection:
+  validation_subset: 1000           # first 1000 Validation ids in sha256 order (fixed)
+  eval_every_steps: 625             # plus step 0 (frozen) and the final step
+  experiments: [O, E1]
+  score: mean(O.fh_mrr, O.fh_all_gold@2, mean_dir(E1.recall@1))   # pre-registered; highest wins, ties -> earlier step
+output_root: outputs/training_v1

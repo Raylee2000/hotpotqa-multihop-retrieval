@@ -1,0 +1,34 @@
+{
+  "model": "r5_full",
+  "release": "v0.1.0",
+  "license": "Apache-2.0",
+  "copyright": "Copyright (c) 2026 Yi-Jui Li (project contributions)",
+  "prepared_date": "2026-11-09",
+  "source_run": "outputs/path_reranker_refit_v1/general_csh/R5_lambdamart__full",
+  "original_archive_sha256": "b94d88d4ab7a5d22b6e425a7e2171af82d1ee769cc490bbf024823b25a16b8f1",
+  "original_files": {
+    "feature_schema.json": {
+      "sha256": "3c6c633b55b25c6fa058a76b9bf67175d0e7e2de04b64c57c133e13ccf6696d1",
+      "bytes": 1026,
+      "research_or_conversion_source": "outputs/path_reranker_refit_v1/general_csh/R5_lambdamart__full/feature_schema.json",
+      "source_bytes_verified": true
+    },
+    "r5_trees.npz": {
+      "sha256": "35167c4e5ba5458bbc306c1882a96920b26b81cf2797295831ee7f85b96a927c",
+      "bytes": 243678,
+      "research_or_conversion_source": "RAG_HotpotQA_Github/release_assets/staging/r5_trees.npz",
+      "source_bytes_verified": true
+    }
+  },
+  "training_data": {
+    "name": "HotpotQA",
+    "source": "https://hotpotqa.github.io/",
+    "license": "CC-BY-SA-4.0",
+    "raw_dataset_records_in_archive": false
+  },
+  "license_source": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+  "license_text_sha256": "3a0b32a74c46bdda3499ec9f39ab4f2a98fc2b239a1c1c1592086d26fdf76159",
+  "source_verification": "All original entries matched the recorded research source files or existing converted files byte-for-byte. No pickle was executed.",
+  "bundled_third_party_code_weights_or_tokenizers": false,
+  "conversion_source_model_sha256": "a8d9dfb0d745261620dda78af6fb91e137eb6a3133c33861d28566acdc7a8da5"
+}

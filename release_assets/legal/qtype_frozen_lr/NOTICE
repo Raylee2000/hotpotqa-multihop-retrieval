@@ -1,0 +1,9 @@
+HotpotQA Research Repository v0.1.0 — qtype_frozen_lr
+Copyright (c) 2026 Yi-Jui Li, for project fine-tuning, learned project parameters and release documentation.
+The supplied model artifact and project release documentation are distributed under Apache License 2.0; see LICENSE. The repository source-code MIT license is separate.
+
+This ZIP contains project-learned numeric parameters and project metadata, not a copy of Sentence Transformers, MiniLM, NumPy or scikit-learn code/weights. Use of those tools during training is recorded as provenance, not as redistribution of their libraries.
+
+Trained using HotpotQA (Yang et al., 2018), CC BY-SA 4.0. See DATA_SOURCES.md for attribution and dataset license scope.
+These are independently fine-tuned/fitted project models; no upstream endorsement is claimed.
+See MODIFICATIONS.md and PROVENANCE.json for per-artifact provenance and modification notices.

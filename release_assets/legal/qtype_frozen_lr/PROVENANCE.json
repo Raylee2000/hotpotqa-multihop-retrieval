@@ -1,0 +1,75 @@
+{
+  "model": "qtype_frozen_lr",
+  "release": "v0.1.0",
+  "license": "Apache-2.0",
+  "copyright": "Copyright (c) 2026 Yi-Jui Li (project contributions)",
+  "prepared_date": "2026-11-09",
+  "source_run": "outputs/qtype_artifacts_v1/qtype_v2_frozen_lr",
+  "original_archive_sha256": "75669dff093239667fab6cca1dd1e9a86e93e001ee1765d7fa3d57ebd9831003",
+  "original_files": {
+    "COMPLETE.json": {
+      "sha256": "067540dac4750d166cf1e3b5c038450095174c7770bb069c10e6f8a597eb1fe1",
+      "bytes": 1595,
+      "research_or_conversion_source": "outputs/qtype_artifacts_v1/qtype_v2_frozen_lr/COMPLETE.json",
+      "source_bytes_verified": true
+    },
+    "artifact_manifest.json": {
+      "sha256": "7046653baf31532d5889b4c7420b48414bd6b585a177c10759bb36e99d4ddcf2",
+      "bytes": 2944,
+      "research_or_conversion_source": "outputs/qtype_artifacts_v1/qtype_v2_frozen_lr/artifact_manifest.json",
+      "source_bytes_verified": true
+    },
+    "feature_schema.json": {
+      "sha256": "d7da2ec462f10d6a1bed7c9062016a8e21d0595e281299e7bd32528d0b9a36e7",
+      "bytes": 795,
+      "research_or_conversion_source": "outputs/qtype_artifacts_v1/qtype_v2_frozen_lr/feature_schema.json",
+      "source_bytes_verified": true
+    },
+    "inmemory_p_bridge_train_crossfit.npy": {
+      "sha256": "0536b4f00502df9a31694436273901a0d5a63fa91eeb440ef0c761370f8443b2",
+      "bytes": 240128,
+      "research_or_conversion_source": "outputs/qtype_artifacts_v1/qtype_v2_frozen_lr/inmemory_p_bridge_train_crossfit.npy",
+      "source_bytes_verified": true
+    },
+    "inmemory_p_bridge_v_select.npy": {
+      "sha256": "9920795213584f829110a3b32494779e1be8bd4dc8d8dcbe413cde8045e475af",
+      "bytes": 8128,
+      "research_or_conversion_source": "outputs/qtype_artifacts_v1/qtype_v2_frozen_lr/inmemory_p_bridge_v_select.npy",
+      "source_bytes_verified": true
+    },
+    "lr_fold0.npz": {
+      "sha256": "74145126694e26051b014082af0aa368ac1cc29f2bf83a7807b96429351b4be5",
+      "bytes": 2796,
+      "research_or_conversion_source": "outputs/qtype_artifacts_v1/qtype_v2_frozen_lr/lr_fold0.npz",
+      "source_bytes_verified": true
+    },
+    "lr_fold1.npz": {
+      "sha256": "fa097f59d4186a5eac562d1c3e23a617f3b1cece0026dbff641b7f94ab7dae96",
+      "bytes": 2796,
+      "research_or_conversion_source": "outputs/qtype_artifacts_v1/qtype_v2_frozen_lr/lr_fold1.npz",
+      "source_bytes_verified": true
+    },
+    "lr_full.npz": {
+      "sha256": "b3d406c998ffa1650fdc8c9aab7d718ab3d3d26f6de1e331be37e15277017ff9",
+      "bytes": 2796,
+      "research_or_conversion_source": "outputs/qtype_artifacts_v1/qtype_v2_frozen_lr/lr_full.npz",
+      "source_bytes_verified": true
+    },
+    "reload_check.json": {
+      "sha256": "9821655799fdcedb4f7dc91a62574e37bd267d940031f2ab690d86c0155e7f1f",
+      "bytes": 1354,
+      "research_or_conversion_source": "outputs/qtype_artifacts_v1/qtype_v2_frozen_lr/reload_check.json",
+      "source_bytes_verified": true
+    }
+  },
+  "training_data": {
+    "name": "HotpotQA",
+    "source": "https://hotpotqa.github.io/",
+    "license": "CC-BY-SA-4.0",
+    "raw_dataset_records_in_archive": false
+  },
+  "license_source": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+  "license_text_sha256": "3a0b32a74c46bdda3499ec9f39ab4f2a98fc2b239a1c1c1592086d26fdf76159",
+  "source_verification": "All original entries matched the recorded research source files or existing converted files byte-for-byte. No pickle was executed.",
+  "bundled_third_party_code_weights_or_tokenizers": false
+}

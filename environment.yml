@@ -1,0 +1,24 @@
+# Conda environment for RAG-HotpotQA. Exact pip versions: requirements-lock.txt
+# Create: conda env create -f environment.yml
+name: RAG-HotpotQA
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cpu
+      - torch==2.5.1+cpu
+      - sentence-transformers==3.3.1
+      - transformers==4.46.3
+      - huggingface_hub==0.26.5
+      - numpy==1.26.4
+      - safetensors==0.8.0
+      - scikit-learn==1.9.1
+      - scipy==1.17.1
+      - pyarrow==18.1.0
+      - pyyaml==6.0.2
+      - python-dotenv==1.0.1
+      - tqdm==4.67.1
+      - psutil==6.1.0
+      - pytest==8.3.4

@@ -1,0 +1,83 @@
+{
+ "description": "Byte-level lock of the fixed public data. Values were recorded from the research repository's data and manifests and re-verified on 2026-11-08. Never regenerate; any mismatch stops the workflow.",
+ "hf": {
+  "repo_id": "hotpotqa/hotpot_qa",
+  "config": "distractor",
+  "revision": "1908d6afbbead072334abe2965f91bd2709910ab",
+  "files": {
+   "distractor/train-00000-of-00002.parquet": {
+    "sha256": "76d3bb3048a7cc73c1958107c0c5872a00d7e7d00c105b81e92f6769e7822e68",
+    "bytes": 165624177
+   },
+   "distractor/train-00001-of-00002.parquet": {
+    "sha256": "713661628434fbb19fff7392e2e321e4ed107e3c7c7784d0690946e5f722763f",
+    "bytes": 166162479
+   },
+   "distractor/validation-00000-of-00001.parquet": {
+    "sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+    "bytes": 27452575
+   }
+  }
+ },
+ "canonical": {
+  "data/raw/canonical/train.jsonl": {
+   "sha256": "89b6635152ea8f3038bdc9c7bac6708ceb718ec82b0a246fdc97ebab62a09ec2",
+   "bytes": 561782661
+  },
+  "data/raw/canonical/dev_distractor.jsonl": {
+   "sha256": "c878eb9b73efd7f660dc8bc5fcf0d4a7316122608a0a6846d2da638b56d3739e",
+   "bytes": 46428993
+  }
+ },
+ "split_files": {
+  "data/splits/exploration_ids.txt": {
+   "sha256": "5a1c34bd9a4253c92b33f60069a13a5da326d684979797a48dc62bb02119bcf3",
+   "bytes": 250000,
+   "ids_sha256": "1ba9ee2c2f9057c33cba54e5b18f6d1c60f0c762bdf806bfcbdd5bbe60ad49c0",
+   "n": 10000
+  },
+  "data/splits/training_ids.txt": {
+   "sha256": "81f7f3ad97b9742c7b535acc4c23906192f0c480b53c4850cd6612caef594eba",
+   "bytes": 750000,
+   "ids_sha256": "587ebed75bd6ff8e51c751686f8863c2797088cc37b99e5caf8069170546555f",
+   "n": 30000
+  },
+  "data/splits/validation_ids.txt": {
+   "sha256": "1d97f9c8a202f23652b83c0d472472ddffaa6b02b157bb84cdddf1c58eb23694",
+   "bytes": 250000,
+   "ids_sha256": "419c90e3f103ead6c6728834c6091f12641d53da209d4c49e531091d1e9cf939",
+   "n": 10000
+  }
+ },
+ "parts": {
+  "exploration": {
+   "n": 10000,
+   "ids_sha256": "1ba9ee2c2f9057c33cba54e5b18f6d1c60f0c762bdf806bfcbdd5bbe60ad49c0",
+   "role": "Spec v2 診斷用；最終系統不使用，但為了讓 Training/Validation 的依序抽樣與正式相同而保留"
+  },
+  "training": {
+   "n": 30000,
+   "ids_sha256": "587ebed75bd6ff8e51c751686f8863c2797088cc37b99e5caf8069170546555f"
+  },
+  "validation": {
+   "n": 10000,
+   "ids_sha256": "419c90e3f103ead6c6728834c6091f12641d53da209d4c49e531091d1e9cf939"
+  },
+  "v_select": {
+   "n": 2000,
+   "ids_sha256": "8f634e61e6b1ffa2ce485dc961c722a90124b37090000056947551f597a80461"
+  },
+  "v_report": {
+   "n": 8000,
+   "ids_sha256": "b91496d13925807cdacd6522a35a3a90eaba40f3d6619c5309f578579bfabb53"
+  },
+  "bc_holdout": {
+   "n": 15612,
+   "ids_sha256": "795b7028dd7f78f5c3d09b6203adf3adfbcb0056621fa2d4f9717554388465a7"
+  },
+  "official_dev_distractor": {
+   "n": 7405,
+   "ids_sha256": "8f1a1b80b352ff578988c4dfb320f44dc7c08c5e4d4b86ef132598271a0adb00"
+  }
+ }
+}

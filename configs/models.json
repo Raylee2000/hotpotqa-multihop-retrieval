@@ -1,0 +1,427 @@
+{
+ "version": "v1",
+ "note": "Release assets include Apache-2.0 license, notices, modification statements and provenance. All pre-existing archive entries retain their original bytes. ZIPs and every extracted file are SHA256 verified.",
+ "models": {
+  "general_encoder": {
+   "asset": "hotpotqa-general-encoder-v1.zip",
+   "asset_sha256": "45449f3d73796d6da5843fe5bd6db34586725abeb778a21f0b9b7aa740f29be0",
+   "asset_bytes": 83680074,
+   "target_dir": "models/general_encoder",
+   "role": "General Encoder：第一跳、General 第二跳與 General baseline（hardneg 全參數微調，step 1869）",
+   "source_run": "outputs/training_v1/hardneg_v1/snapshot_step01869",
+   "empty_dirs": [
+    "2_Normalize"
+   ],
+   "files": {
+    "1_Pooling/config.json": {
+     "sha256": "64230a97629225324725c35e1a1cbd15025a9f656eafaaeb86cf8ec6a4ecb4d8",
+     "bytes": 305
+    },
+    "DATA_SOURCES.md": {
+     "sha256": "c4056157e0afe1a1558ce2164b3189601329def388696026a4fb71fa82041b8c",
+     "bytes": 1138
+    },
+    "LICENSE": {
+     "sha256": "3a0b32a74c46bdda3499ec9f39ab4f2a98fc2b239a1c1c1592086d26fdf76159",
+     "bytes": 11303
+    },
+    "MINILM_MIT_LICENSE.txt": {
+     "sha256": "6e90701309596a0bda99f53196b72144b0e3387a2b5b364a418a79f5b49595ea",
+     "bytes": 1082
+    },
+    "MODIFICATIONS.md": {
+     "sha256": "c24df3fb35fb2936b83fa88f1d5e756822af0e5d52c2e276b956ccd93b013273",
+     "bytes": 1125
+    },
+    "NOTICE": {
+     "sha256": "c59cd534f7024eb7a3aed84f7f628b6240f8ca80d9874ae50c910005e8995dd8",
+     "bytes": 1652
+    },
+    "PROVENANCE.json": {
+     "sha256": "b6efa8a7a651a3c171cb494f4b3eef114b4ecc487cb970544896f52b58d8e5d0",
+     "bytes": 4647
+    },
+    "UPSTREAM_MODEL_CARD.md": {
+     "sha256": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0",
+     "bytes": 10502
+    },
+    "config.json": {
+     "sha256": "732bfb3e05c35adbee83ee42a408ec05d9bc5d3421ca7e18eff029ecfa7bfa8b",
+     "bytes": 704
+    },
+    "config_sentence_transformers.json": {
+     "sha256": "a99fafcb657375807a7a5a3071e88ee959211f71c704f32d83d48a45566b8815",
+     "bytes": 212
+    },
+    "model.safetensors": {
+     "sha256": "fe2cf7942617cf11482d24ea7e69c3e5ab4a3a85f2e44bf6e7cae9dd57467091",
+     "bytes": 90864192
+    },
+    "modules.json": {
+     "sha256": "e7989e94b5b809d895a9521b708312c1ccd333e183effebaf3838908da2acd53",
+     "bytes": 368
+    },
+    "sentence_bert_config.json": {
+     "sha256": "01d1055f90dbf0425135dbb95d2ef43f77c49802faec5a20fea87637dda4ea51",
+     "bytes": 56
+    },
+    "special_tokens_map.json": {
+     "sha256": "5aa43c2f985a25296d5a5ce621c2f77376ca8091a47993c492fd5460b895b140",
+     "bytes": 732
+    },
+    "tokenizer.json": {
+     "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+     "bytes": 711396
+    },
+    "tokenizer_config.json": {
+     "sha256": "31bb6601378da5ceaf1670b0e72453eca0859a9cf47a5b90658d57b49185b934",
+     "bytes": 1498
+    },
+    "vocab.txt": {
+     "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+     "bytes": 231508
+    }
+   },
+   "license": "Apache-2.0",
+   "license_file": "LICENSE",
+   "provenance_file": "PROVENANCE.json"
+  },
+  "csh": {
+   "asset": "hotpotqa-csh-v1.zip",
+   "asset_sha256": "1fd0d3fe79572e9d603d2957558465c836b65b36a4327be0da6bac0714f5da4e",
+   "asset_bytes": 83675610,
+   "target_dir": "models/csh",
+   "role": "Conditional Second-Hop Encoder（main，step 1500）",
+   "source_run": "outputs/csh_v1/csh_main_v1/snapshot_step01500",
+   "empty_dirs": [
+    "2_Normalize"
+   ],
+   "files": {
+    "1_Pooling/config.json": {
+     "sha256": "64230a97629225324725c35e1a1cbd15025a9f656eafaaeb86cf8ec6a4ecb4d8",
+     "bytes": 305
+    },
+    "DATA_SOURCES.md": {
+     "sha256": "c4056157e0afe1a1558ce2164b3189601329def388696026a4fb71fa82041b8c",
+     "bytes": 1138
+    },
+    "LICENSE": {
+     "sha256": "3a0b32a74c46bdda3499ec9f39ab4f2a98fc2b239a1c1c1592086d26fdf76159",
+     "bytes": 11303
+    },
+    "MINILM_MIT_LICENSE.txt": {
+     "sha256": "6e90701309596a0bda99f53196b72144b0e3387a2b5b364a418a79f5b49595ea",
+     "bytes": 1082
+    },
+    "MODIFICATIONS.md": {
+     "sha256": "700907e8cc7a250d10d1fabaa340b56c5a76db2bcd0c9cb099c00c53cbfeb01c",
+     "bytes": 1116
+    },
+    "NOTICE": {
+     "sha256": "7555de6fa8e372d67440aec270675da3cb160dbac2a63e4707a241ada01abe21",
+     "bytes": 1640
+    },
+    "PROVENANCE.json": {
+     "sha256": "b4a9b8004cfe3dfe85215e9a4617ad617e1bcbdf2e4cbff14d870c653edaa28f",
+     "bytes": 4591
+    },
+    "UPSTREAM_MODEL_CARD.md": {
+     "sha256": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0",
+     "bytes": 10502
+    },
+    "config.json": {
+     "sha256": "732bfb3e05c35adbee83ee42a408ec05d9bc5d3421ca7e18eff029ecfa7bfa8b",
+     "bytes": 704
+    },
+    "config_sentence_transformers.json": {
+     "sha256": "a99fafcb657375807a7a5a3071e88ee959211f71c704f32d83d48a45566b8815",
+     "bytes": 212
+    },
+    "model.safetensors": {
+     "sha256": "63532946993e9716abc9eaf8a37c77c896bf1a78f8590cd05491b21e185dfb5a",
+     "bytes": 90864192
+    },
+    "modules.json": {
+     "sha256": "e7989e94b5b809d895a9521b708312c1ccd333e183effebaf3838908da2acd53",
+     "bytes": 368
+    },
+    "sentence_bert_config.json": {
+     "sha256": "01d1055f90dbf0425135dbb95d2ef43f77c49802faec5a20fea87637dda4ea51",
+     "bytes": 56
+    },
+    "special_tokens_map.json": {
+     "sha256": "5aa43c2f985a25296d5a5ce621c2f77376ca8091a47993c492fd5460b895b140",
+     "bytes": 732
+    },
+    "tokenizer.json": {
+     "sha256": "851ca67100d372ca3ae031a6abd168f53489eebfd7d89523f35c5c9b4d372c3c",
+     "bytes": 711649
+    },
+    "tokenizer_config.json": {
+     "sha256": "31bb6601378da5ceaf1670b0e72453eca0859a9cf47a5b90658d57b49185b934",
+     "bytes": 1498
+    },
+    "vocab.txt": {
+     "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+     "bytes": 231508
+    }
+   },
+   "license": "Apache-2.0",
+   "license_file": "LICENSE",
+   "provenance_file": "PROVENANCE.json"
+  },
+  "sf_selector_fold0": {
+   "asset": "hotpotqa-sf-selector-fold0-v1.zip",
+   "asset_sha256": "c5801bd70ccb4e08575b7ed8ba312b8f06c5adcf9b6d98a8340c45657dbf9249",
+   "asset_bytes": 83619179,
+   "target_dir": "models/sf_selector_fold0",
+   "role": "Supporting Fact Selector cross-encoder，cross-fit fold 0（head 由 head.pt 轉為 safetensors）",
+   "source_run": "outputs/sf_selector_v2/sf_cf_v1/fold0/final",
+   "empty_dirs": [],
+   "files": {
+    "DATA_SOURCES.md": {
+     "sha256": "c4056157e0afe1a1558ce2164b3189601329def388696026a4fb71fa82041b8c",
+     "bytes": 1138
+    },
+    "LICENSE": {
+     "sha256": "3a0b32a74c46bdda3499ec9f39ab4f2a98fc2b239a1c1c1592086d26fdf76159",
+     "bytes": 11303
+    },
+    "MINILM_MIT_LICENSE.txt": {
+     "sha256": "6e90701309596a0bda99f53196b72144b0e3387a2b5b364a418a79f5b49595ea",
+     "bytes": 1082
+    },
+    "MODIFICATIONS.md": {
+     "sha256": "391dfa9dbd232ca4a18f201bd93ffc444e804892c9ec807c6f783e7ee421c5a7",
+     "bytes": 1184
+    },
+    "NOTICE": {
+     "sha256": "73f66b5ec91ee26c3bdf693f9fb1e2e145084975f4da65d184e3c2b88956df90",
+     "bytes": 1654
+    },
+    "PROVENANCE.json": {
+     "sha256": "9f91cc623bd9c010c3f5f203235a3525f8c82503d619ba0ea7f1b617cb1a1a16",
+     "bytes": 3711
+    },
+    "UPSTREAM_MODEL_CARD.md": {
+     "sha256": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0",
+     "bytes": 10502
+    },
+    "config.json": {
+     "sha256": "732bfb3e05c35adbee83ee42a408ec05d9bc5d3421ca7e18eff029ecfa7bfa8b",
+     "bytes": 704
+    },
+    "head.safetensors": {
+     "sha256": "9dfc82c50146a8c49bf8c5a58255b75d1dd07ebf4ee1e8c8f906a4024a9e989c",
+     "bytes": 1676
+    },
+    "model.safetensors": {
+     "sha256": "5ed0220d9fc6e25b61ffd409b30a42c3d203873ac1c0a301b97ed2fc773ecdca",
+     "bytes": 90864192
+    },
+    "special_tokens_map.json": {
+     "sha256": "5aa43c2f985a25296d5a5ce621c2f77376ca8091a47993c492fd5460b895b140",
+     "bytes": 732
+    },
+    "tokenizer.json": {
+     "sha256": "2fc687b11de0bc1b3d8348f92e3b49ef1089a621506c7661fbf3248fcd54947e",
+     "bytes": 711649
+    },
+    "tokenizer_config.json": {
+     "sha256": "31bb6601378da5ceaf1670b0e72453eca0859a9cf47a5b90658d57b49185b934",
+     "bytes": 1498
+    },
+    "vocab.txt": {
+     "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+     "bytes": 231508
+    }
+   },
+   "license": "Apache-2.0",
+   "license_file": "LICENSE",
+   "provenance_file": "PROVENANCE.json"
+  },
+  "sf_selector_fold1": {
+   "asset": "hotpotqa-sf-selector-fold1-v1.zip",
+   "asset_sha256": "7de8f0196cfcdf9b7791a49e89faa61f5d485410c7e9e9d9c763fe9bdc5554d0",
+   "asset_bytes": 83620548,
+   "target_dir": "models/sf_selector_fold1",
+   "role": "Supporting Fact Selector cross-encoder，cross-fit fold 1",
+   "source_run": "outputs/sf_selector_v2/sf_cf_v1/fold1/final",
+   "empty_dirs": [],
+   "files": {
+    "DATA_SOURCES.md": {
+     "sha256": "c4056157e0afe1a1558ce2164b3189601329def388696026a4fb71fa82041b8c",
+     "bytes": 1138
+    },
+    "LICENSE": {
+     "sha256": "3a0b32a74c46bdda3499ec9f39ab4f2a98fc2b239a1c1c1592086d26fdf76159",
+     "bytes": 11303
+    },
+    "MINILM_MIT_LICENSE.txt": {
+     "sha256": "6e90701309596a0bda99f53196b72144b0e3387a2b5b364a418a79f5b49595ea",
+     "bytes": 1082
+    },
+    "MODIFICATIONS.md": {
+     "sha256": "315433003eaddecb0299c71dab95456706a64b84305437681474409549f1f174",
+     "bytes": 1184
+    },
+    "NOTICE": {
+     "sha256": "27bc9e04e7aff0c3225e1e0bbf56cf1bb1ec6d68be7b999f30d7f1e29efdb2ea",
+     "bytes": 1654
+    },
+    "PROVENANCE.json": {
+     "sha256": "96af875833f03e5a34013be2d8439b06ead0960e3d3c8a43300e21161b3c3576",
+     "bytes": 3711
+    },
+    "UPSTREAM_MODEL_CARD.md": {
+     "sha256": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0",
+     "bytes": 10502
+    },
+    "config.json": {
+     "sha256": "732bfb3e05c35adbee83ee42a408ec05d9bc5d3421ca7e18eff029ecfa7bfa8b",
+     "bytes": 704
+    },
+    "head.safetensors": {
+     "sha256": "48ecb4fa10a3c69bac6b9a98663e14fffd5ea4f24c2a1f29f3edef0fcb387b3e",
+     "bytes": 1676
+    },
+    "model.safetensors": {
+     "sha256": "a352c52e86b0a3a1d021cc6ba41dde037edf9dbcff161e2d0cb88f1858984196",
+     "bytes": 90864192
+    },
+    "special_tokens_map.json": {
+     "sha256": "5aa43c2f985a25296d5a5ce621c2f77376ca8091a47993c492fd5460b895b140",
+     "bytes": 732
+    },
+    "tokenizer.json": {
+     "sha256": "2fc687b11de0bc1b3d8348f92e3b49ef1089a621506c7661fbf3248fcd54947e",
+     "bytes": 711649
+    },
+    "tokenizer_config.json": {
+     "sha256": "31bb6601378da5ceaf1670b0e72453eca0859a9cf47a5b90658d57b49185b934",
+     "bytes": 1498
+    },
+    "vocab.txt": {
+     "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+     "bytes": 231508
+    }
+   },
+   "license": "Apache-2.0",
+   "license_file": "LICENSE",
+   "provenance_file": "PROVENANCE.json"
+  },
+  "qtype_frozen_lr": {
+   "asset": "hotpotqa-qtype-frozen-lr-v1.zip",
+   "asset_sha256": "253e1d1df3457ed1481daf42bff0e364f309adb8994f8ad545c13661f43a95ff",
+   "asset_bytes": 137087,
+   "target_dir": "models/qtype_frozen_lr",
+   "role": "QType frozen-LR（凍結 MiniLM 句向量 + Logistic Regression）；原 qtype_v2 權重未保存，此為同條件重新擬合的替代品",
+   "source_run": "outputs/qtype_artifacts_v1/qtype_v2_frozen_lr",
+   "empty_dirs": [],
+   "files": {
+    "COMPLETE.json": {
+     "sha256": "067540dac4750d166cf1e3b5c038450095174c7770bb069c10e6f8a597eb1fe1",
+     "bytes": 1595
+    },
+    "DATA_SOURCES.md": {
+     "sha256": "c4056157e0afe1a1558ce2164b3189601329def388696026a4fb71fa82041b8c",
+     "bytes": 1138
+    },
+    "LICENSE": {
+     "sha256": "3a0b32a74c46bdda3499ec9f39ab4f2a98fc2b239a1c1c1592086d26fdf76159",
+     "bytes": 11303
+    },
+    "MODIFICATIONS.md": {
+     "sha256": "a46aca103b11de7878f278b9e1db213b14eca88631b18403d7084fe3fcc2e9d8",
+     "bytes": 1194
+    },
+    "NOTICE": {
+     "sha256": "279c75a446d0ce24fde852e29f6527ab84fe7270a566f0f7b849c3eef1a1c192",
+     "bytes": 906
+    },
+    "PROVENANCE.json": {
+     "sha256": "e3181f20e904675e944d9cc467a05302a0015b66dfdede03fbb26fef05025e1a",
+     "bytes": 3495
+    },
+    "artifact_manifest.json": {
+     "sha256": "7046653baf31532d5889b4c7420b48414bd6b585a177c10759bb36e99d4ddcf2",
+     "bytes": 2944
+    },
+    "feature_schema.json": {
+     "sha256": "d7da2ec462f10d6a1bed7c9062016a8e21d0595e281299e7bd32528d0b9a36e7",
+     "bytes": 795
+    },
+    "inmemory_p_bridge_train_crossfit.npy": {
+     "sha256": "0536b4f00502df9a31694436273901a0d5a63fa91eeb440ef0c761370f8443b2",
+     "bytes": 240128
+    },
+    "inmemory_p_bridge_v_select.npy": {
+     "sha256": "9920795213584f829110a3b32494779e1be8bd4dc8d8dcbe413cde8045e475af",
+     "bytes": 8128
+    },
+    "lr_fold0.npz": {
+     "sha256": "74145126694e26051b014082af0aa368ac1cc29f2bf83a7807b96429351b4be5",
+     "bytes": 2796
+    },
+    "lr_fold1.npz": {
+     "sha256": "fa097f59d4186a5eac562d1c3e23a617f3b1cece0026dbff641b7f94ab7dae96",
+     "bytes": 2796
+    },
+    "lr_full.npz": {
+     "sha256": "b3d406c998ffa1650fdc8c9aab7d718ab3d3d26f6de1e331be37e15277017ff9",
+     "bytes": 2796
+    },
+    "reload_check.json": {
+     "sha256": "9821655799fdcedb4f7dc91a62574e37bd267d940031f2ab690d86c0155e7f1f",
+     "bytes": 1354
+    }
+   },
+   "license": "Apache-2.0",
+   "license_file": "LICENSE",
+   "provenance_file": "PROVENANCE.json"
+  },
+  "r5_full": {
+   "asset": "hotpotqa-r5-full-v1.zip",
+   "asset_sha256": "311bced4cda4de38c2012b24664700c15752f7f238844e5f722cbd38b06330cc",
+   "asset_bytes": 73065,
+   "target_dir": "models/r5_full",
+   "role": "R5_full 學習式排序器（200 棵回歸樹，depth 4，lr 0.1）；由 model.joblib 轉為無 pickle 的 npz",
+   "source_run": "outputs/path_reranker_refit_v1/general_csh/R5_lambdamart__full",
+   "empty_dirs": [],
+   "files": {
+    "DATA_SOURCES.md": {
+     "sha256": "c4056157e0afe1a1558ce2164b3189601329def388696026a4fb71fa82041b8c",
+     "bytes": 1138
+    },
+    "LICENSE": {
+     "sha256": "3a0b32a74c46bdda3499ec9f39ab4f2a98fc2b239a1c1c1592086d26fdf76159",
+     "bytes": 11303
+    },
+    "MODIFICATIONS.md": {
+     "sha256": "9f2b650f89cc61d9ec2d29702adba88fb69bf4d6c6f06dab104f133f485de239",
+     "bytes": 1109
+    },
+    "NOTICE": {
+     "sha256": "0f6084bf01183044fbb995f5511df88d82f10bce40e4c977ea0dc68e5db86033",
+     "bytes": 898
+    },
+    "PROVENANCE.json": {
+     "sha256": "f356d2f86dd2c52cb8cf4a4f8c08c6eb728edf45404ba007834f53fbc2e4d895",
+     "bytes": 1612
+    },
+    "feature_schema.json": {
+     "sha256": "3c6c633b55b25c6fa058a76b9bf67175d0e7e2de04b64c57c133e13ccf6696d1",
+     "bytes": 1026
+    },
+    "r5_trees.npz": {
+     "sha256": "35167c4e5ba5458bbc306c1882a96920b26b81cf2797295831ee7f85b96a927c",
+     "bytes": 243678
+    }
+   },
+   "license": "Apache-2.0",
+   "license_file": "LICENSE",
+   "provenance_file": "PROVENANCE.json"
+  }
+ },
+ "asset_revision": "license-metadata-1"
+}

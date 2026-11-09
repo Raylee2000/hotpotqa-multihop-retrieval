@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.gz binary
+*.zip binary
+*.npz binary
+*.npy binary
+*.safetensors binary
+*.parquet binary

@@ -1,0 +1,52 @@
+{
+  "canonical": {
+    "dev": {
+      "path": "data/raw/canonical/dev_distractor.jsonl",
+      "sha256": "c878eb9b73efd7f660dc8bc5fcf0d4a7316122608a0a6846d2da638b56d3739e",
+      "source": "original JSON"
+    },
+    "train": {
+      "path": "data/raw/canonical/train.jsonl",
+      "sha256": "89b6635152ea8f3038bdc9c7bac6708ceb718ec82b0a246fdc97ebab62a09ec2",
+      "source": "HF hotpotqa/hotpot_qa@1908d6afbbead072334abe2965f91bd2709910ab"
+    }
+  },
+  "dev_hf_vs_original": {
+    "duplicate_ids_candidate": 0,
+    "duplicate_ids_reference": 0,
+    "field_mismatch_counts": {},
+    "fields_compared": [
+      "_id",
+      "question",
+      "answer",
+      "type",
+      "level",
+      "supporting_facts",
+      "context"
+    ],
+    "ids_compared": 7405,
+    "ids_only_in_candidate": 0,
+    "ids_only_in_reference": 0,
+    "mismatch_examples": [],
+    "n_candidate": 7405,
+    "n_reference": 7405,
+    "record_order_identical": true,
+    "semantically_identical": true
+  },
+  "generated_utc": "2026-10-31T04:53:12.149985+00:00",
+  "original_dev": {
+    "bytes": 46320117,
+    "copied_from": "RAG-Research/data/raw/hotpotqa/hotpot_dev_distractor_v1.json (read-only copy)",
+    "expected_sha256": "4e9ecb5c8d3b719f624d66b60f8d56bf227f03914f5f0753d6fa1b359d7104ea",
+    "path": "data/raw/original/hotpot_dev_distractor_v1.json",
+    "sha256": "4e9ecb5c8d3b719f624d66b60f8d56bf227f03914f5f0753d6fa1b359d7104ea",
+    "sha256_match": true
+  },
+  "train_hf": {
+    "byte_level_verified": false,
+    "n_records": 90447,
+    "n_unique_ids": 90447,
+    "overlap_ids_with_dev": 0,
+    "verification_status": "NOT_VERIFIED_AGAINST_ORIGINAL: original hotpot_train_v1.1.json (expected SHA256 26650cf50234ef5fb2e664ed70bbecdfd87815e6bffc257e068efea5cf7cd316) unavailable; official host curtis.ml.cmu.edu NXDOMAIN. Trust rests on the HF Dev mirror verifying exactly and on both splits sharing the same conversion commit."
+  }
+}

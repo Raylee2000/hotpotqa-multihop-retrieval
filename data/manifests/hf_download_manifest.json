@@ -1,0 +1,72 @@
+{
+  "config": "distractor",
+  "download_finished_utc": "2026-10-31T04:52:15.546828+00:00",
+  "download_started_utc": "2026-10-31T04:51:26.760135+00:00",
+  "files": [
+    {
+      "bytes": 165624177,
+      "path": "data/raw/hf_hotpot_qa/distractor/train-00000-of-00002.parquet",
+      "sha256": "76d3bb3048a7cc73c1958107c0c5872a00d7e7d00c105b81e92f6769e7822e68"
+    },
+    {
+      "bytes": 166162479,
+      "path": "data/raw/hf_hotpot_qa/distractor/train-00001-of-00002.parquet",
+      "sha256": "713661628434fbb19fff7392e2e321e4ed107e3c7c7784d0690946e5f722763f"
+    },
+    {
+      "bytes": 27452575,
+      "path": "data/raw/hf_hotpot_qa/distractor/validation-00000-of-00001.parquet",
+      "sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6"
+    },
+    {
+      "bytes": 9522,
+      "path": "data/raw/hf_hotpot_qa/README.md",
+      "sha256": "3cfab003a856275d3198b031c6b2ac46c63178fb462a4123705f652b71b22813"
+    }
+  ],
+  "historical_original_checksums": [
+    {
+      "checksum": "26650cf50234ef5fb2e664ed70bbecdfd87815e6bffc257e068efea5cf7cd316",
+      "commit": "cb440e4e72efe5808fe5df497ffa0b4e8da85c32",
+      "commit_title": "Convert dataset sizes from base 2 to base 10 in the dataset card (#2)",
+      "config": "distractor",
+      "num_bytes": 566426227,
+      "url": "http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_train_v1.1.json"
+    },
+    {
+      "checksum": "4e9ecb5c8d3b719f624d66b60f8d56bf227f03914f5f0753d6fa1b359d7104ea",
+      "commit": "cb440e4e72efe5808fe5df497ffa0b4e8da85c32",
+      "commit_title": "Convert dataset sizes from base 2 to base 10 in the dataset card (#2)",
+      "config": "distractor",
+      "num_bytes": 46320117,
+      "url": "http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_dev_distractor_v1.json"
+    },
+    {
+      "checksum": "26650cf50234ef5fb2e664ed70bbecdfd87815e6bffc257e068efea5cf7cd316",
+      "commit": "cb440e4e72efe5808fe5df497ffa0b4e8da85c32",
+      "commit_title": "Convert dataset sizes from base 2 to base 10 in the dataset card (#2)",
+      "config": "fullwiki",
+      "num_bytes": 566426227,
+      "url": "http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_train_v1.1.json"
+    },
+    {
+      "checksum": "2f1f3e594a3066a3084cc57950ca2713c24712adaad03af6ccce18d1846d5618",
+      "commit": "cb440e4e72efe5808fe5df497ffa0b4e8da85c32",
+      "commit_title": "Convert dataset sizes from base 2 to base 10 in the dataset card (#2)",
+      "config": "fullwiki",
+      "num_bytes": 47454698,
+      "url": "http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_dev_fullwiki_v1.json"
+    },
+    {
+      "checksum": "c61a5274b9aa6deca3f7d2dc4d7757684c158fbd2264f759307699fb53801c2b",
+      "commit": "cb440e4e72efe5808fe5df497ffa0b4e8da85c32",
+      "commit_title": "Convert dataset sizes from base 2 to base 10 in the dataset card (#2)",
+      "config": "fullwiki",
+      "num_bytes": 46213747,
+      "url": "http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_test_fullwiki_v1.json"
+    }
+  ],
+  "repo_id": "hotpotqa/hotpot_qa",
+  "repo_url": "https://huggingface.co/datasets/hotpotqa/hotpot_qa",
+  "revision": "1908d6afbbead072334abe2965f91bd2709910ab"
+}

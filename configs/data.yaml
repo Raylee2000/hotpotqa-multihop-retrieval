@@ -1,0 +1,40 @@
+# Data sources, verification and split configuration.
+official:
+  website: https://hotpotqa.github.io/
+  github: https://github.com/hotpotqa/hotpot
+  # Official URLs from the hotpotqa/hotpot README; host returned NXDOMAIN on 2026-10-31.
+  train_url: http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_train_v1.1.json
+  dev_distractor_url: http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_dev_distractor_v1.json
+  # Expected SHA256 of the original files (user-supplied from historical HF metadata;
+  # cross-checked against HF repo history by scripts/download_hf_dataset.py).
+  expected_sha256:
+    train: 26650cf50234ef5fb2e664ed70bbecdfd87815e6bffc257e068efea5cf7cd316
+    dev_distractor: 4e9ecb5c8d3b719f624d66b60f8d56bf227f03914f5f0753d6fa1b359d7104ea
+
+hf_mirror:
+  repo_id: hotpotqa/hotpot_qa
+  config: distractor
+  # Pinned after first download; null = resolve current main and record it.
+  revision: 1908d6afbbead072334abe2965f91bd2709910ab  # pinned 2026-10-31 ("Convert dataset to Parquet (#9)")
+  history_commits_to_scan: 30
+  train_files: [distractor/train-00000-of-00002.parquet, distractor/train-00001-of-00002.parquet]
+  validation_files: [distractor/validation-00000-of-00001.parquet]
+
+canonical:
+  # Canonical JSONL (original HotpotQA JSON schema) built from the parquet mirror.
+  train_path: data/raw/canonical/train.jsonl
+  dev_path: data/raw/canonical/dev_distractor.jsonl
+
+splits:
+  seed: 42
+  method: stratified_by_type   # bridge / comparison proportional allocation
+  sizes:
+    exploration: 10000
+    training: 30000
+    validation: 10000
+  manifest_path: data/manifests/splits_manifest.json
+
+pilot:
+  # Pilot draws from Exploration only, max 200 questions (round 1 limit).
+  source_split: exploration
+  n_questions: 200

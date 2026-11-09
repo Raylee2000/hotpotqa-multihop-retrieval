@@ -1,0 +1,34 @@
+# O / E / R experiment configuration (spec v2). Pre-registered; not tuned on results.
+spec_version: 2
+split: exploration                   # O/E/R may only read Exploration (enforced)
+
+ks: [1, 2, 3, 5]
+
+# Experiments per retriever. D-07: O for all five; E/R fixed on Dense-MiniLM.
+experiments:
+  bm25_local:         [O]
+  bm25_trainglobal:   [O]
+  dense:              [O, E1, E1P, R1, R2, R3]
+  hybrid_local:       [O]
+  hybrid_trainglobal: [O]
+retriever_order: [bm25_trainglobal, bm25_local, dense, hybrid_trainglobal, hybrid_local]
+
+paths:
+  top_m: 5                           # D-01: Top-5 B kept per first-hop A
+  widths: {P1: 1, P3: 3, P5: 5, PAll: null}   # R1 first-hop widths (null = all context articles)
+  e2_width: P3                       # D-08
+  r3_width: 3                        # D-08
+
+run:
+  output_root: outputs/oer_v2        # independent of spec-v1 outputs/pilot (D-13)
+  report_dir: reports/oer_v2
+  chunk_size: 16
+  subset_selection: sha256_of_id_ascending   # for --n subsets (smoke tests)
+  formal_requires_flag: true         # a full-split run needs --formal
+
+stop:                                # D-14
+  min_free_disk_gb: 5
+  min_free_ram_gb: 2
+  max_failure_rate: 0.01             # stop when failures exceed max(min_failures, rate * attempted)
+  min_failures: 10
+  torch_threads: 8

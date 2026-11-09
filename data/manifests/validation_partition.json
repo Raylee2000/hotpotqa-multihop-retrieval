@@ -1,0 +1,14 @@
+{
+ "rule": "Validation IDs sorted by sha256(id); first 2000 = v_select, rest = v_report",
+ "created_utc": "2026-11-01T02:16:37.817708+00:00",
+ "parts": {
+  "v_select": {
+   "n": 2000,
+   "ids_sha256": "8f634e61e6b1ffa2ce485dc961c722a90124b37090000056947551f597a80461"
+  },
+  "v_report": {
+   "n": 8000,
+   "ids_sha256": "b91496d13925807cdacd6522a35a3a90eaba40f3d6619c5309f578579bfabb53"
+  }
+ }
+}

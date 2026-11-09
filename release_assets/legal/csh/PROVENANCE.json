@@ -1,0 +1,102 @@
+{
+  "model": "csh",
+  "release": "v0.1.0",
+  "license": "Apache-2.0",
+  "copyright": "Copyright (c) 2026 Yi-Jui Li (project contributions)",
+  "prepared_date": "2026-11-09",
+  "source_run": "outputs/csh_v1/csh_main_v1/snapshot_step01500",
+  "original_archive_sha256": "f3687c92d3b608b365e2cd53c3af1a27c754eb6228e26b5f07d64509acc04cf0",
+  "original_files": {
+    "1_Pooling/config.json": {
+      "sha256": "64230a97629225324725c35e1a1cbd15025a9f656eafaaeb86cf8ec6a4ecb4d8",
+      "bytes": 305,
+      "research_or_conversion_source": "outputs/csh_v1/csh_main_v1/snapshot_step01500/1_Pooling/config.json",
+      "source_bytes_verified": true
+    },
+    "config.json": {
+      "sha256": "732bfb3e05c35adbee83ee42a408ec05d9bc5d3421ca7e18eff029ecfa7bfa8b",
+      "bytes": 704,
+      "research_or_conversion_source": "outputs/csh_v1/csh_main_v1/snapshot_step01500/config.json",
+      "source_bytes_verified": true
+    },
+    "config_sentence_transformers.json": {
+      "sha256": "a99fafcb657375807a7a5a3071e88ee959211f71c704f32d83d48a45566b8815",
+      "bytes": 212,
+      "research_or_conversion_source": "outputs/csh_v1/csh_main_v1/snapshot_step01500/config_sentence_transformers.json",
+      "source_bytes_verified": true
+    },
+    "model.safetensors": {
+      "sha256": "63532946993e9716abc9eaf8a37c77c896bf1a78f8590cd05491b21e185dfb5a",
+      "bytes": 90864192,
+      "research_or_conversion_source": "outputs/csh_v1/csh_main_v1/snapshot_step01500/model.safetensors",
+      "source_bytes_verified": true
+    },
+    "modules.json": {
+      "sha256": "e7989e94b5b809d895a9521b708312c1ccd333e183effebaf3838908da2acd53",
+      "bytes": 368,
+      "research_or_conversion_source": "outputs/csh_v1/csh_main_v1/snapshot_step01500/modules.json",
+      "source_bytes_verified": true
+    },
+    "sentence_bert_config.json": {
+      "sha256": "01d1055f90dbf0425135dbb95d2ef43f77c49802faec5a20fea87637dda4ea51",
+      "bytes": 56,
+      "research_or_conversion_source": "outputs/csh_v1/csh_main_v1/snapshot_step01500/sentence_bert_config.json",
+      "source_bytes_verified": true
+    },
+    "special_tokens_map.json": {
+      "sha256": "5aa43c2f985a25296d5a5ce621c2f77376ca8091a47993c492fd5460b895b140",
+      "bytes": 732,
+      "research_or_conversion_source": "outputs/csh_v1/csh_main_v1/snapshot_step01500/special_tokens_map.json",
+      "source_bytes_verified": true
+    },
+    "tokenizer.json": {
+      "sha256": "851ca67100d372ca3ae031a6abd168f53489eebfd7d89523f35c5c9b4d372c3c",
+      "bytes": 711649,
+      "research_or_conversion_source": "outputs/csh_v1/csh_main_v1/snapshot_step01500/tokenizer.json",
+      "source_bytes_verified": true
+    },
+    "tokenizer_config.json": {
+      "sha256": "31bb6601378da5ceaf1670b0e72453eca0859a9cf47a5b90658d57b49185b934",
+      "bytes": 1498,
+      "research_or_conversion_source": "outputs/csh_v1/csh_main_v1/snapshot_step01500/tokenizer_config.json",
+      "source_bytes_verified": true
+    },
+    "vocab.txt": {
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508,
+      "research_or_conversion_source": "outputs/csh_v1/csh_main_v1/snapshot_step01500/vocab.txt",
+      "source_bytes_verified": true,
+      "unchanged_upstream_file": true
+    }
+  },
+  "training_data": {
+    "name": "HotpotQA",
+    "source": "https://hotpotqa.github.io/",
+    "license": "CC-BY-SA-4.0",
+    "raw_dataset_records_in_archive": false
+  },
+  "license_source": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+  "license_text_sha256": "3a0b32a74c46bdda3499ec9f39ab4f2a98fc2b239a1c1c1592086d26fdf76159",
+  "source_verification": "All original entries matched the recorded research source files or existing converted files byte-for-byte. No pickle was executed.",
+  "upstream": {
+    "repo": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "license": "Apache-2.0",
+    "model_card_sha256": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0",
+    "notice_at_pinned_repository_root": false,
+    "ancestor_licenses": [
+      {
+        "repo": "nreimers/MiniLM-L6-H384-uncased",
+        "license": "MIT",
+        "source": "https://huggingface.co/nreimers/MiniLM-L6-H384-uncased"
+      },
+      {
+        "repo": "microsoft/MiniLM-L12-H384-uncased",
+        "license": "MIT",
+        "copyright": "Copyright (c) Microsoft Corporation",
+        "license_source": "https://raw.githubusercontent.com/microsoft/unilm/master/LICENSE",
+        "license_text_sha256": "6e90701309596a0bda99f53196b72144b0e3387a2b5b364a418a79f5b49595ea"
+      }
+    ]
+  }
+}
