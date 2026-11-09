@@ -71,4 +71,4 @@ flowchart TD
 
 > 本專案完成的是 HotpotQA Distractor 模式下的文章配對檢索系統，不包含 LLM 答案生成或 FullWiki 全語料搜尋。
 >
-> 模型權重與執行產物不直接納入 Git repository。模型 ZIP 預計透過獨立發布管道提供；目前尚無公開下載網址，因此僅取得原始碼並不代表能直接重現完整評估結果。
+> 模型權重與執行產物不直接納入 Git repository。模型 ZIP 透過 GitHub Release [`v1.0.0`](https://github.com/Raylee2000/hotpotqa-multihop-retrieval/releases/tag/v1.0.0) 提供；僅取得原始碼並不代表能直接重現完整評估結果。

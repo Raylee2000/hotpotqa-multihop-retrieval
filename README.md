@@ -77,7 +77,7 @@ RAG_HotpotQA_Github/
 | [HotpotQA_Research_Report.md](HotpotQA_Research_Report.md) | 研究動機、實驗演進、方法比較與最終成果 |
 | [PROJECT_ARCHITECTURE.md](PROJECT_ARCHITECTURE.md) | 發布版程式職責與資料流 |
 | [正式結果](results/formal/README.md) | V-report 8,000、B/C 15,612、Official Dev 7,405 題 |
-| [RELEASE_NOTES_v1.0.0.md](RELEASE_NOTES_v1.0.0.md) | 預定 GitHub Release `v1.0.0`：範圍、模型資產與 SHA256、安裝、限制 |
+| [RELEASE_NOTES_v1.0.0.md](RELEASE_NOTES_v1.0.0.md) | GitHub Release [`v1.0.0`](https://github.com/Raylee2000/hotpotqa-multihop-retrieval/releases/tag/v1.0.0)：範圍、模型資產與 SHA256、安裝、限制 |
 
 ## 05｜安裝與環境（Python 3.11）
 
@@ -129,11 +129,11 @@ python run.py data --source local --parquet-dir PATH_TO_PARQUET_DIR
 | `hotpotqa-qtype-frozen-lr-v1.zip` | 凍結 embedding + LR 的 Bridge 機率 → `models/qtype_frozen_lr/` |
 | `hotpotqa-r5-full-v1.zip` | 27 特徵的 LambdaMART 樹與 schema → `models/r5_full/` |
 
-六個 ZIP 不在 Git 歷史中，預定以本 Repository 的 GitHub Release **`v1.0.0`** 附件發布（附件：六個 ZIP + `SHA256SUMS`，說明見 [RELEASE_NOTES_v1.0.0.md](RELEASE_NOTES_v1.0.0.md)）。**撰寫本文件時該 Release 尚未建立，模型尚未公開**；在 Release 頁面實際存在前，下列網址不可用，請向維護者取得 ZIP。Git 只追蹤 `release_assets/legal/`（ZIP 內授權文件的相同副本）與 `release_assets/SHA256SUMS`；ZIP 與 `release_assets/staging/` 被 `.gitignore` 排除。
+六個 ZIP 不在 Git 歷史中，以本 Repository 的 GitHub Release [**`v1.0.0`**](https://github.com/Raylee2000/hotpotqa-multihop-retrieval/releases/tag/v1.0.0) 附件發布（附件：六個 ZIP + `SHA256SUMS`，說明見 [RELEASE_NOTES_v1.0.0.md](RELEASE_NOTES_v1.0.0.md)）。Git 只追蹤 `release_assets/legal/`（ZIP 內授權文件的相同副本）與 `release_assets/SHA256SUMS`；ZIP 與 `release_assets/staging/` 被 `.gitignore` 排除。
 
 **方式 A：手動下載後安裝（建議）**
 
-1. 在 GitHub Repository 的 **Releases → v1.0.0** 頁面下載六個 `hotpotqa-*-v1.zip` 與 `SHA256SUMS`，放入 `release_assets/`（覆蓋 Git 內相同內容的 `SHA256SUMS`）。
+1. 在 GitHub Repository 的 [**Releases → v1.0.0**](https://github.com/Raylee2000/hotpotqa-multihop-retrieval/releases/tag/v1.0.0) 頁面下載六個 `hotpotqa-*-v1.zip` 與 `SHA256SUMS`，放入 `release_assets/`（覆蓋 Git 內相同內容的 `SHA256SUMS`）。
 2. 驗證下載檔（Linux／macOS／Git Bash；輸出六行 `OK` 才繼續）：
 
    ```sh
@@ -147,10 +147,10 @@ python run.py data --source local --parquet-dir PATH_TO_PARQUET_DIR
    python run.py models --from-dir release_assets
    ```
 
-**方式 B：由安裝器直接下載**（`OWNER/REPO` 換成實際 Repository；網址格式為 GitHub Release 附件的標準下載路徑）：
+**方式 B：由安裝器直接下載**：
 
 ```sh
-python run.py models --base-url https://github.com/OWNER/REPO/releases/download/v1.0.0
+python run.py models --base-url https://github.com/Raylee2000/hotpotqa-multihop-retrieval/releases/download/v1.0.0
 ```
 
 安裝器會下載 `<URL>/<ZIP 名稱>` 至 `release_assets/`（只接受 `https://`）。若 ZIP 放在其他位置，方式 A 以實際目錄取代 `release_assets`。兩種方式都會先檢查 ZIP 大小與 SHA256，僅允許 manifest 所列安全相對路徑，再驗證每個解壓檔案的 SHA256；不是單純手動 unzip。Encoder／SF 使用 safetensors，QType／R5 使用不需 pickle 的資產。已存在的模型目錄會被驗證，不會無條件覆蓋。
@@ -169,7 +169,7 @@ python run.py models --from-dir release_assets --base-model cache --base-model-c
 python -c "import hashlib,pathlib; [print(hashlib.sha256(p.read_bytes()).hexdigest(), p.name) for p in sorted(pathlib.Path('release_assets').glob('*.zip'))]"
 ```
 
-授權分三層，詳見 [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md)：原始碼為 MIT（[LICENSE](LICENSE)）；六個模型 ZIP 另以 Apache-2.0 授權，每個 ZIP 內附 `LICENSE`、`NOTICE`、`MODIFICATIONS.md`、`DATA_SOURCES.md`、`PROVENANCE.json`（四個 MiniLM 衍生模型另附 `UPSTREAM_MODEL_CARD.md` 與 `MINILM_MIT_LICENSE.txt`）；HotpotQA 資料仍適用 CC BY-SA 4.0，ZIP 不含原始題目或文章內容。授權文件已備妥；ZIP 公開與否以 GitHub Release `v1.0.0` 實際建立為準。
+授權分三層，詳見 [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md)：原始碼為 MIT（[LICENSE](LICENSE)）；六個模型 ZIP 另以 Apache-2.0 授權，每個 ZIP 內附 `LICENSE`、`NOTICE`、`MODIFICATIONS.md`、`DATA_SOURCES.md`、`PROVENANCE.json`（四個 MiniLM 衍生模型另附 `UPSTREAM_MODEL_CARD.md` 與 `MINILM_MIT_LICENSE.txt`）；HotpotQA 資料仍適用 CC BY-SA 4.0，ZIP 不含原始題目或文章內容。
 
 ## 07｜檢查、測試與評估
 

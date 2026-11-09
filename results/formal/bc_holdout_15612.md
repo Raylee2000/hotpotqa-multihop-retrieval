@@ -52,8 +52,8 @@
 | `second_hop_ft` | +45.09 pp [+44.21, +45.94] |
 | `sf_vs_full_body` | +0.76 pp [+0.44, +1.08] |
 | `sf_vs_question_only` | +20.02 pp [+19.30, +20.72] |
-| `dynamic_vs_top2` | +0.00 pp [+0.00, +0.00] |
-| `csh_vs_general` | +0.00 pp [+0.00, +0.00] |
+| `dynamic_vs_top2` | -0.82 pp [-1.18, -0.43] |
+| `csh_vs_general` | -0.24 pp [-0.66, +0.16] |
 
 ## 五、評估設定與研究界線
 

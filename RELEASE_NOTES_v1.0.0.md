@@ -1,7 +1,5 @@
 # Release v1.0.0 — HotpotQA Multi-hop Retrieval
 
-> **狀態：預定發布（尚未建立 GitHub Release）。** 本文件是 `v1.0.0` Release 頁面的說明草稿；在 Release 實際建立並上傳附件前，模型尚未公開，文中沒有可用的下載網址。
-
 ## 版本對應
 
 | 項目 | 版本 |
@@ -68,8 +66,8 @@ python run.py data --source hf                   # 固定 revision 的 HotpotQA�
 cd release_assets && sha256sum -c SHA256SUMS && cd ..
 python run.py models --from-dir release_assets
 
-# B. 由安裝器直接下載（OWNER/REPO 換成實際 Repository）
-python run.py models --base-url https://github.com/OWNER/REPO/releases/download/v1.0.0
+# B. 由安裝器直接下載
+python run.py models --base-url https://github.com/Raylee2000/hotpotqa-multihop-retrieval/releases/download/v1.0.0
 ```
 
 安裝器先比對 ZIP 大小與 SHA256，只解壓 manifest 所列的安全相對路徑並逐檔校驗；預設另從 Hugging Face 下載釘選的基礎模型 `sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41`（不在 ZIP 內）。之後：
